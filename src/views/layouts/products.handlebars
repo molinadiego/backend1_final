@@ -1,0 +1,23 @@
+<h1>Listado de Productos</h1>
+<div id="products-container">
+	{{#each payload}}
+		<div
+			id="prod-{{this._id}}"
+			style="border: 1px solid #ccc; margin: 10px; padding: 10px;"
+		>
+			<h3>{{this.title}}</h3>
+			<p>{{this.description}}</p>
+			<p>Precio: ${{this.price}}</p>
+			<a href="/products/{{this._id}}">Ver detalle</a>
+		</div>
+	{{/each}}
+</div>
+<div>
+	{{#if hasPrevPage}}
+		<a href="/products?page={{prevPage}}">Anterior</a>
+	{{/if}}
+	<span>Página {{page}} de {{totalPages}}</span>
+	{{#if hasNextPage}}
+		<a href="/products?page={{nextPage}}">Siguiente</a>
+	{{/if}}
+</div>
